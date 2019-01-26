@@ -139,7 +139,7 @@ void BaseTranspose<PERM,TRANS>::transpose(BSGS<PERM,TRANS> &bsgs, unsigned int i
 	}
 	BOOST_ASSERT(U_i1.size() >= targetTransversalSize);
 
-	bsgs.S.insert(bsgs.S.end(), S_i1.begin(), boost::next(S_i1.begin(), m_statNewGenerators));
+	bsgs.S.insert(bsgs.S.end(), S_i1.begin(), std::next(S_i1.begin(), m_statNewGenerators));
 	U[i] = U_i;
 	U[i+1] = U_i1;
 }

@@ -42,7 +42,7 @@ class RefinementFamily;
 
 /// abstract base class for subgroup (and coset) predicates
 template <class PERM>
-class SubgroupPredicate : public std::unary_function<PERM, bool> {
+class SubgroupPredicate {
 public:
 	/// virtual destructor
 	virtual ~SubgroupPredicate() {}

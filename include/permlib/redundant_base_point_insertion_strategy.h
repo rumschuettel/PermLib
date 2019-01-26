@@ -75,7 +75,7 @@ public:
 		const std::vector<TRANS> &U = RedundantBasePointInsertionStrategy<PERM,TRANS>::m_bsgs.U;
 		for (unsigned int i=0; i<B.size(); ++i) {
 			if (beta == B[i])
-				return -i-1;
+				return i-1;
 		}
 		int pos = B.size();
 		while (pos > 0 && U[pos-1].size() == 1)

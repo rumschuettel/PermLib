@@ -312,7 +312,7 @@ PERM BSGS<PERM, TRANS>::random(const int i) const {
     PERM g(this->n);
     for (int l = this->U.size()-1; l>=i ; --l) {
 		//std::cout << l << " : " << U[l] << " : " << U[l].size() << std::endl;
-        unsigned long beta = *(boost::next(this->U[l].begin(), randomInt(this->U[l].size())));
+        unsigned long beta = *(std::next(this->U[l].begin(), randomInt(this->U[l].size())));
         boost::scoped_ptr<PERM> u_beta(this->U[l].at(beta));
         g *= *u_beta;
     }
@@ -353,7 +353,7 @@ int BSGS<PERM, TRANS>::insertGenerator(const typename PERM::ptr& g, bool updateO
 	
 	if (static_cast<unsigned int>(pos) == this->B.size()) {
 		dom_int beta;
-		bool newBaseElement __attribute__((unused)) = chooseBaseElement(*g, beta);
+		bool newBaseElement = chooseBaseElement(*g, beta);
 		BOOST_ASSERT( newBaseElement );
 		this->B.push_back(beta);
 		this->U.push_back(TRANS(this->n));
@@ -454,7 +454,7 @@ void BSGS<PERM, TRANS>::stripRedundantBasePoints(int minPos) {
  * stabilizer chain are next to each other.
  */
 template <class PERM>
-class StrongGeneratingSetSorter : public std::binary_function<typename PERM::ptr, typename PERM::ptr, bool> {
+class StrongGeneratingSetSorter {
 public:
 	/**
 	 * @param baseBegin begin-iterator(dom_int) to the base relative to which the strong generating set is to be sorted

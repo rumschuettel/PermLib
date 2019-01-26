@@ -39,7 +39,7 @@ namespace permlib {
 
 /// predicate matching a permutation if it stabilizes a given list of points pointwise
 template <class PERM>
-class IdentityPredicate : public std::unary_function<typename PERM::ptr, bool> {
+class IdentityPredicate {
 public:
 	/// evaluate predicate
 	bool operator()(const typename PERM::ptr &p) const {

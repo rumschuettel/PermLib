@@ -37,26 +37,6 @@
 #include <cstdlib>
 #include <vector>
 
-#if __cplusplus < 201103L
-namespace std {
-	/// copies elements of (begin to end) to destBegin if they match the given predicate
-	/**
-	 * due to Meyers, Effective STL, p. 157 (Item 36)
-	 */
-	template<typename InputIterator,
-			 typename OutputIterator,
-			 typename Predicate>
-	OutputIterator copy_if(InputIterator begin, InputIterator end, OutputIterator destBegin, Predicate p) {
-		while (begin != end) {
-			if (p(*begin))
-				*destBegin++ = *begin;
-			++begin;
-		}
-		return destBegin;
-	}
-}
-#endif
-
 namespace permlib {
 #ifdef PERMLIB_DOMAIN_INT
 	typedef unsigned int dom_int;

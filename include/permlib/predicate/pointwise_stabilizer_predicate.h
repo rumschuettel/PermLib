@@ -39,7 +39,7 @@ namespace permlib {
 
 /// predicate matching a permutation if it stabilizes a given list of points pointwise
 template <class PERM>
-class PointwiseStabilizerPredicate : public std::unary_function<typename PERM::ptr, bool> {
+class PointwiseStabilizerPredicate {
 public:
 	/// constructor
 	/**

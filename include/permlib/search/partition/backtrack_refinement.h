@@ -67,7 +67,7 @@ private:
 	
 	typedef typename Refinement<PERM>::RefinementPtr RefinementPtr;
 	
-	struct RefinementSorter : public std::binary_function<RefinementPtr, RefinementPtr, bool> {
+	struct RefinementSorter {
 		RefinementSorter(const BaseSorterByReference& sorter, const Partition* pi) : m_sorter(sorter), m_pi(pi) {}
 		
 		bool operator()(RefinementPtr a, RefinementPtr b) const {
@@ -169,7 +169,7 @@ bool BacktrackRefinement<PERM>::init(Partition& pi) {
 	unsigned long singleCell[1];
 	singleCell[0] = this->m_alpha;
 	//TODO: write special case function to handle singleCell intersection
-	const bool inter __attribute__((unused)) = pi.intersect(singleCell, singleCell+1, m_cellIndex);
+	const bool inter = pi.intersect(singleCell, singleCell+1, m_cellIndex);
 	BOOST_ASSERT(inter);
 	
 	return true;

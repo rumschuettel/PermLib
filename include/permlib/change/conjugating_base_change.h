@@ -74,7 +74,7 @@ unsigned int ConjugatingBaseChange<PERM,TRANS,BASETRANSPOSE>::change(BSGS<PERM,T
 	if (baseBegin == baseEnd)
 		return 0;
 	
-	const boost::uint64_t origOrder __attribute__((unused)) = bsgs.order();
+	const boost::uint64_t origOrder = bsgs.order();
 	BASETRANSPOSE trans;
 	PERM c(bsgs.n);
 	PERM cInv(bsgs.n);
